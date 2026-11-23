@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>eMaktab</title>
+<link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+<!-- LOGIN -->
+<section id="login">
+  <div class="auth">
+    <div class="brand"><div class="logo">e</div><span>eMaktab</span></div>
+    <h1>Tizimga kirish</h1>
+    <p class="sub">Rolingizni tanlang va login hamda parolni kiriting.</p>
+    <div class="seg" id="seg">
+      <span class="thumb"></span>
+      <button type="button" data-role="student" class="on">O‘quvchi</button>
+      <button type="button" data-role="admin">Administrator</button>
+    </div>
+    <form id="loginForm">
+      <div class="f"><label for="lg">Login</label><input id="lg" class="inp" type="text" autocomplete="username" placeholder="Loginingiz"></div>
+      <div class="f"><label for="ps">Parol</label><input id="ps" class="inp" type="password" autocomplete="current-password" placeholder="Parolingiz"></div>
+      <div class="err" id="err"></div>
+      <button class="btn block" type="submit">Kirish</button>
+    </form>
+    <div class="demo">
+      <b>Demo akkauntlar</b><br>
+      O‘quvchi: <code>oquvchi</code> / <code>1234</code><br>
+      Admin: <code>admin</code> / <code>admin123</code>
+    </div>
+  </div>
+</section>
+
+<!-- APP -->
+<div id="app" class="hide">
+  <aside class="side">
+    <div class="brand"><div class="logo">e</div><span>eMaktab</span></div>
+
+    <div id="navStudent" class="hide">
+      <button class="nav-btn on" data-go="s-home">🏠 Bosh sahifa</button>
+      <button class="nav-btn" data-go="s-grades">📊 Kundalik</button>
+      <button class="nav-btn" data-go="s-schedule">🗓 Dars jadvali</button>
+      <button class="nav-btn" data-go="s-news">📰 Yangiliklar</button>
+    </div>
+    <div id="navAdmin" class="hide">
+      <button class="nav-btn on" data-go="a-home">📈 Boshqaruv</button>
+      <button class="nav-btn" data-go="a-grade">✏️ Baho qo‘yish</button>
+      <button class="nav-btn" data-go="a-students">👥 O‘quvchilar</button>
+      <button class="nav-btn" data-go="a-add">➕ Yangi o‘quvchi</button>
+      <button class="nav-btn" data-go="a-announce">📢 E’lonlar</button>
+    </div>
+
+    <div class="spacer"></div>
+    <div class="me"><div class="av" id="meAv">B</div><div><b id="meName">—</b><small id="meRole">—</small></div></div>
+    <button class="logout" id="logout">⎋ Chiqish</button>
+  </aside>
+
+  <main>
+    <!-- ===== STUDENT ===== -->
+    <div id="s-home" class="view">
+      <div class="top">
+        <div><h2 id="sHello">Salom!</h2><p>7-B sinf · 24-sonli maktab · 23 noyabr, dushanba</p></div>
+        <span class="chip" id="sAvgChip">O‘rtacha: —</span>
+      </div>
+      <div class="grid two">
+        <div class="card">
+          <h3>So‘nggi baholar <small>eng yangilari</small></h3>
+          <div class="gr-grid" id="sRecent"></div>
+        </div>
+        <div class="card">
+          <h3>Bugungi darslar <small>23 noyabr</small></h3>
+          <div class="lesson"><div class="t">1 DARS · 8:30 – 9:15</div><div><div class="n">Kelajak soati</div><div class="x">Oilada: davlat ramzlariga oid videokontent tahlili</div></div></div>
+          <div class="lesson"><div class="t">2 DARS · 9:20 – 10:05</div><div><div class="n">Matematika <small style="color:#64748b;font-weight:500;">BSB-3 (25 ball)</small></div><div class="x">Misollarni yechish</div></div></div>
+          <div class="lesson"><div class="t">3 DARS · 10:10 – 10:55</div><div><div class="n">Ingliz tili</div><div class="x">Skill based practice: Writing · T. choice</div></div></div>
+          <div class="lesson"><div class="t">4 DARS · 11:05 – 11:50</div><div><div class="n">Jismoniy tarbiya</div><div class="x">Voleybol. Pastdan kelayotgan to‘pni ikki qo‘llab bilaklarda ushlash · Umumrivojlantiruvchi mashqlar</div></div></div>
+          <div class="lesson"><div class="t">5 DARS · 11:55 – 12:40</div><div><div class="n">Biologiya</div><div class="x">Muskullar qanday ishlaydi? 2.8-amaliy ish. Antagonist muskullar · Mashq daftari bilan ishlash</div></div></div>
+          <div class="lesson"><div class="t">6 DARS · 12:45 – 13:30</div><div><div class="n">Geografiya</div><div class="x">Materik iqlimining xususiyatlari. Iqlim mintaqalari · Xarita bilan ishlash</div></div></div>
+          <div style="margin-top:14px;padding:10px 12px;border-radius:12px;background:#eef2ff;color:var(--p);font-weight:700;font-size:13px;">TAVSIYA ETILGAN TRENAJORLAR</div>
+          <div style="display:flex;flex-direction:column;gap:10px;margin-top:12px;color:var(--p);font-size:14px;">
+            <span>📘 2 chorak uchun baholar</span>
+            <span>🗓 Bir hafta uchun dars jadvali</span>
+          </div>
+        </div>
+      </div>
+      <div class="grid" style="margin-top:18px;">
+        <div class="card">
+          <div class="news"><span class="tag">eMaktab yangiliklari · 13 noyab. 18:17</span><div class="t">Актуальная новость о переходе на 12-летнее образование в Узбекистане — в карточках. Читать</div><div class="m">👍 15053 · 👁 1752305 · Yoqdi · Fikr bildirish</div></div>
+          <div class="news"><span class="tag">eMaktab yangiliklari · 13 noyab. 18:17</span><div class="t">O‘zbekistonda 12 yillik ta’lim tizimiga o‘tish haqidagi dolzarb yangilik — kartochkalarda. O‘qing</div><div class="m">👍 13776 · 👁 1368681 · Yoqdi · Fikr bildirish</div></div>
+          <div class="news"><span class="tag">eMaktab yangiliklari · 2 noyab. 10:14</span><div class="t">eMaktab maktab to‘lovlarini Uzum Bank orqali qabul qilish xizmatini ishga tushirdi</div><div class="m">Ota-onalar ta’lim, ovqatlanish va qo‘shimcha mashg‘ulotlar uchun to‘lovni eMaktab platformasida to‘lashi mumkin.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="s-grades" class="view hide">
+      <div class="top"><div><h2>Kundalik</h2><p>Fanlar bo‘yicha barcha baholaringiz</p></div></div>
+      <div class="card" style="margin-bottom:18px;">
+        <h3>Fanlar bo‘yicha o‘rtacha</h3>
+        <div id="sBars"></div>
+      </div>
+      <div class="card">
+        <h3>Barcha baholar <small id="sCount"></small></h3>
+        <div style="overflow-x:auto;">
+          <table class="tbl">
+            <thead><tr><th>Fan</th><th>Sana</th><th>Baho</th><th>Turi</th></tr></thead>
+            <tbody id="sTable"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div id="s-schedule" class="view hide">
+      <div class="top"><div><h2>Dars jadvali</h2><p>Haftalik reja</p></div></div>
+      <div class="card">
+        <div class="lesson"><div class="t">8:30 – 9:15</div><div><div class="n">Kelajak soati</div><div class="x">1-dars</div></div></div>
+        <div class="lesson"><div class="t">9:20 – 10:05</div><div><div class="n">Ona tili</div><div class="x">2-dars · Xona 204</div></div></div>
+        <div class="lesson"><div class="t">10:20 – 11:05</div><div><div class="n">Adabiyot</div><div class="x">3-dars · Xona 110</div></div></div>
+      </div>
+    </div>
+
+    <div id="s-news" class="view hide">
+      <div class="top"><div><h2>Yangiliklar</h2><p>eMaktab e’lonlari</p></div></div>
+      <div class="card">
+        <div class="news"><span class="tag">Yangilik</span><div class="t">O‘zbekistonda 12 yillik ta’lim tizimiga o‘tish haqida yangilik</div><div class="m">13 noyabr · 20:17</div></div>
+        <div class="news"><span class="tag">Xizmat</span><div class="t">eMaktab maktab to‘lovlarini qabul qilish xizmatini ishga tushirdi</div><div class="m">2 noyabr · 12:14</div></div>
+      </div>
+    </div>
+
+    <!-- ===== ADMIN ===== -->
+    <div id="a-home" class="view hide">
+      <div class="top"><div><h2>Boshqaruv paneli</h2><p>24-sonli maktab bo‘yicha umumiy ko‘rsatkichlar</p></div><span class="chip">23 noyabr</span></div>
+      <div class="grid kpis">
+        <div class="card kpi"><div class="l">Jami o‘quvchilar</div><div class="v" id="kTotal">0</div><div class="d">Faol</div></div>
+        <div class="card kpi"><div class="l">Baholangan</div><div class="v" id="kGraded">0</div><div class="d">Bu fan bo‘yicha</div></div>
+        <div class="card kpi"><div class="l">Jami baholar</div><div class="v" id="kGrades">0</div><div class="d">Barcha fanlar</div></div>
+        <div class="card kpi"><div class="l">O‘rtacha baho</div><div class="v" id="kAvg">0</div><div class="d">Maktab bo‘yicha</div></div>
+      </div>
+      <div class="grid two">
+        <div class="card">
+          <h3>Sinflar bo‘yicha o‘rtacha</h3>
+          <div id="aClassBars"></div>
+        </div>
+        <div class="card">
+          <h3>So‘nggi e’lonlar</h3>
+          <div class="news"><span class="tag">E’lon</span><div class="t">Chorak yakunlari 30-noyabrgacha</div><div class="m">Bugun · 09:10</div></div>
+          <div class="news"><span class="tag">E’lon</span><div class="t">Ota-onalar yig‘ilishi 28-noyabr kuni</div><div class="m">Kecha · 16:40</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="a-grade" class="view hide">
+      <div class="top"><div><h2>Baho qo‘yish</h2><p>Bir nechta o‘quvchiga bir vaqtda baho qo‘ying (1–10)</p></div></div>
+      <div class="card">
+        <div class="tools">
+          <div><label class="lbl">Fan</label>
+            <select class="inp" id="gSubject"></select></div>
+          <div><label class="lbl">Sinf</label>
+            <select class="inp" id="gClass"><option value="">Barcha sinflar</option></select></div>
+          <div><label class="lbl">Sana</label>
+            <input class="inp" type="date" id="gDate" value="2026-11-23"></div>
+          <div><label class="lbl">Turi</label>
+            <select class="inp" id="gType"><option>Joriy</option><option>Yozma</option><option>Test</option><option>Og‘zaki</option></select></div>
+        </div>
+        <div style="overflow-x:auto;">
+          <table class="tbl">
+            <thead><tr><th>O‘quvchi</th><th>Sinf</th><th>Oldingi baholar</th><th>Yangi baho</th><th></th></tr></thead>
+            <tbody id="gRows"></tbody>
+          </table>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:16px;gap:12px;flex-wrap:wrap;">
+          <span class="info" id="gInfo"></span>
+          <button class="btn" id="gSaveAll">Hammasini saqlash</button>
+        </div>
+        <p class="ok" id="gMsg"></p>
+      </div>
+    </div>
+
+    <div id="a-students" class="view hide">
+      <div class="top"><div><h2>O‘quvchilar</h2><p>Ro‘yxat va o‘rtacha baholar</p></div></div>
+      <div class="card">
+        <div class="tools">
+          <div><label class="lbl">Qidirish</label><input class="inp" id="search" type="search" placeholder="Ism bo‘yicha..."></div>
+          <div><label class="lbl">Sinf</label><select class="inp" id="sFilter"><option value="">Barcha sinflar</option></select></div>
+        </div>
+        <div style="overflow-x:auto;">
+          <table class="tbl">
+            <thead><tr><th>O‘quvchi</th><th>Sinf</th><th>O‘rtacha</th><th>Holat</th><th></th></tr></thead>
+            <tbody id="stRows"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div id="a-add" class="view hide">
+      <div class="top"><div><h2>Yangi o‘quvchi</h2><p>Ma’lumotlarni kiriting</p></div></div>
+      <div class="card" style="max-width:660px;">
+        <form id="addForm" class="form">
+          <div class="full"><label class="lbl">Ism familiya</label><input class="inp" id="nName" placeholder="Masalan: Ali Valiyev"></div>
+          <div><label class="lbl">Sinf</label><select class="inp" id="nCls"></select></div>
+          <div><label class="lbl">Tug‘ilgan sana</label><input class="inp" type="date" id="nDob"></div>
+          <div class="full"><label class="lbl">Ota-ona telefoni</label><input class="inp" id="nPhone" placeholder="+998 __ ___ __ __"></div>
+          <div class="full"><button class="btn" type="submit">Qo‘shish</button></div>
+        </form>
+        <p class="ok" id="addMsg"></p>
+      </div>
+    </div>
+
+    <div id="a-announce" class="view hide">
+      <div class="top"><div><h2>E’lonlar</h2><p>Barcha o‘quvchilarga xabar yuboring</p></div></div>
+      <div class="card" style="max-width:660px;">
+        <form id="annForm" class="form">
+          <div class="full"><label class="lbl">Sarlavha</label><input class="inp" id="aTitle" placeholder="E’lon sarlavhasi"></div>
+          <div class="full"><label class="lbl">Matn</label><textarea class="inp" id="aText" rows="4" placeholder="Xabar matni"></textarea></div>
+          <div class="full"><button class="btn" type="submit">E’lon qilish</button></div>
+        </form>
+        <p class="ok" id="annMsg"></p>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
